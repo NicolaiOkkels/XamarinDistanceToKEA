@@ -36,7 +36,17 @@ namespace XamarinLocationApp
                 else
                 {
                     Location currentLocation = new Location("Current location", location.Latitude, location.Longitude);
-                    labelDistanceToKEA.Text = $"{DistanceCalculator.Distance(currentLocation.Latitude, kea.Latitude, currentLocation.Longitude, kea.Longitude)} KM.";
+                    var distance = DistanceCalculator.Distance(currentLocation.Latitude, kea.Latitude, currentLocation.Longitude, kea.Longitude);
+                    labelDistanceToKEA.Text = $"{distance} KM.";
+                    if (TimeCalculator.DistanceToMinutes(distance) > 60)
+                    {
+                        labelTime.Text = $"{TimeCalculator.DistanceToHours(distance)} hours {TimeCalculator.ToMinutes(distance)} minutes";
+                    }
+                    else
+                    {
+                        labelTime.Text = $"{TimeCalculator.ToMinutes(distance)} minutes";
+                    }
+
                     labelLocation.Text = $"{currentLocation.Latitude} {currentLocation.Longitude}";
                 }
             }

@@ -9,6 +9,7 @@
                HorizontalOptions="Center">
         </Label>
         <Label x:Name="labelDistanceToKEA"></Label>
+        <Label x:Name="labelTime"></Label>
         <Button Text="Get location"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="Center"
